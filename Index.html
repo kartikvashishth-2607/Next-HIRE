@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Next-HIRE | AI-Powered Tech & Career Interview Preparation</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand-logo" id="logoBtn">
+        <i class="fa-solid fa-briefcase"></i> Next-<span>HIRE</span>
+      </a>
+      <nav class="nav-links">
+        <button class="nav-link active" id="navHome"><i class="fa-solid fa-house"></i> Home</button>
+        <button class="nav-link hidden" id="navDashboard"><i class="fa-solid fa-chart-line"></i> Dashboard</button>
+        <button class="nav-link hidden" id="navFlashcards"><i class="fa-solid fa-clone"></i> Flashcards</button>
+        <button class="nav-link hidden" id="navMistakes"><i class="fa-solid fa-book-bookmark"></i> Mistakes Notebook</button>
+        <button class="nav-link hidden" id="navSetup"><i class="fa-solid fa-sliders"></i> New Practice</button>
+      </nav>
+      <div class="user-profile hidden" id="userProfile">
+        <span class="user-avatar" id="avatarText">U</span>
+        <span id="userName">Candidate</span>
+        <button class="btn btn-outline" id="logoutBtn" title="Logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+
+    <!-- HERO SECTION -->
+    <section id="heroSection" class="view-section">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <span class="badge badge-primary"><i class="fa-solid fa-sparkles"></i> AI-Powered Mock Assessments</span>
+          <h1>Master Your Next Tech Interview with <span class="highlight">Next-HIRE</span></h1>
+          <p class="hero-subtext">Comprehensive 20+ question practice sets per domain, interactive flashcards, and automated mistake tracking designed to get you offer-ready.</p>
+          <div class="hero-cta">
+            <button class="btn btn-primary btn-lg" id="getStartedBtn"><i class="fa-solid fa-rocket"></i> Get Started Now</button>
+            <button class="btn btn-secondary btn-lg" id="heroLearnBtn"><i class="fa-solid fa-circle-play"></i> How It Works</button>
+          </div>
+          <div class="trust-metrics">
+            <div class="metric-item">
+              <strong>100+</strong>
+              <span>Curated Qs</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <strong>20+</strong>
+              <span>Qs Per Test</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <strong>5</strong>
+              <span>Domains</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image-container">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Professional Candidate" class="hero-img">
+          <div class="floating-card flex-card-1">
+            <i class="fa-solid fa-circle-check text-success"></i>
+            <div>
+              <strong>Mistake Tracker</strong>
+              <small>Auto-saved review</small>
+            </div>
+          </div>
+          <div class="floating-card flex-card-2">
+            <i class="fa-solid fa-chart-pie text-primary"></i>
+            <div>
+              <strong>Extended Question Sets</strong>
+              <small>20-25 Questions/Session</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUTHENTICATION SECTION -->
+    <section id="authSection" class="view-section hidden">
+      <div class="auth-card">
+        <div class="auth-header">
+          <h2>Welcome to Next-HIRE</h2>
+          <p>Login or create an account to save your test progress</p>
+        </div>
+        <div class="auth-tabs">
+          <button class="tab-btn active" id="tabEmail">Email Address</button>
+          <button class="tab-btn" id="tabPhone">Mobile Number</button>
+        </div>
+
+        <form id="authForm">
+          <div class="form-group" id="emailGroup">
+            <label for="userEmail"><i class="fa-solid fa-envelope"></i> Email Address</label>
+            <input type="email" id="userEmail" placeholder="candidate@example.com">
+          </div>
+
+          <div class="form-group hidden" id="phoneGroup">
+            <label for="userPhone"><i class="fa-solid fa-phone"></i> Mobile Number</label>
+            <input type="tel" id="userPhone" placeholder="+1 (555) 000-0000">
+          </div>
+
+          <div class="form-group">
+            <label for="userPassword"><i class="fa-solid fa-lock"></i> Password / PIN</label>
+            <input type="password" id="userPassword" placeholder="••••••••" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block"><i class="fa-solid fa-right-to-bracket"></i> Continue to Candidate Dashboard</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- DASHBOARD SECTION -->
+    <section id="dashboardSection" class="view-section hidden">
+      <div class="dashboard-header">
+        <div>
+          <h2>Candidate Dashboard</h2>
+          <p>Track your interview preparedness and domain proficiency breakdown.</p>
+        </div>
+        <button class="btn btn-primary" id="dashStartNewBtn"><i class="fa-solid fa-plus"></i> New Practice Test</button>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon icon-blue"><i class="fa-solid fa-file-signature"></i></div>
+          <div class="stat-info">
+            <span class="stat-value" id="statTests">0</span>
+            <span class="stat-label">Assessments Completed</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon icon-green"><i class="fa-solid fa-bullseye"></i></div>
+          <div class="stat-info">
+            <span class="stat-value" id="statAvg">0%</span>
+            <span class="stat-label">Average Accuracy</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon icon-orange"><i class="fa-solid fa-award"></i></div>
+          <div class="stat-info">
+            <span class="stat-value" id="statTopDomain">N/A</span>
+            <span class="stat-label">Strongest Track</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Domain Weakness Breakdown -->
+      <div class="card mb-4" style="margin-bottom: 2rem;">
+        <h3><i class="fa-solid fa-chart-bar"></i> Domain Skill Accuracy Breakdown</h3>
+        <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 1rem;">Aggregated scoring across all domain tests completed.</p>
+        <div id="skillBreakdownContainer" class="skill-breakdown-list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <div class="dashboard-content">
+        <div class="card history-card">
+          <h3><i class="fa-solid fa-clock-rotate-left"></i> Assessment History</h3>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Domain</th>
+                  <th>Job Type</th>
+                  <th>Level</th>
+                  <th>Score</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody id="historyTableBody">
+                <!-- Populated by JS -->
+              </tbody>
+            </table>
+            <div id="noHistory" class="empty-state">
+              <i class="fa-solid fa-folder-open"></i>
+              <p>No test attempts recorded yet. Start a new assessment!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLASHCARDS SECTION -->
+    <section id="flashcardsSection" class="view-section hidden">
+      <div class="flashcard-container">
+        <div class="config-header">
+          <h2>Core Technical Flashcards</h2>
+          <p>Quick revision cards for high-frequency interview concepts.</p>
+        </div>
+        <div class="auth-tabs" id="flashcardTabs">
+          <button class="tab-btn active" data-domain="Frontend Development">Frontend</button>
+          <button class="tab-btn" data-domain="Backend Engineering">Backend</button>
+          <button class="tab-btn" data-domain="Data Science & AI">Data Science</button>
+        </div>
+        
+        <div class="flashcard-card-box" id="flashcardCardBox">
+          <div class="fc-badge-row">
+            <span class="badge badge-primary" id="fcCardCount">Card 1 of 5</span>
+            <span class="badge badge-outline" id="fcDomainTitle">Frontend</span>
+          </div>
+          <div class="fc-content-area">
+            <h3 id="fcFrontText">Loading Concept...</h3>
+            <div class="fc-back-section hidden" id="fcBackSection">
+              <hr class="fc-divider">
+              <span class="badge badge-success" style="margin-bottom: 0.5rem;"><i class="fa-solid fa-lightbulb"></i> Key Explanation</span>
+              <p id="fcBackText">Explanation text goes here.</p>
+            </div>
+          </div>
+          <div class="fc-flip-hint">
+            <small><i class="fa-solid fa-hand-pointer"></i> Click card or button below to reveal answer</small>
+          </div>
+        </div>
+
+        <div class="flashcard-actions">
+          <button class="btn btn-secondary" id="fcPrevBtn"><i class="fa-solid fa-chevron-left"></i> Previous</button>
+          <button class="btn btn-primary" id="fcFlipBtn"><i class="fa-solid fa-rotate"></i> Reveal / Flip</button>
+          <button class="btn btn-secondary" id="fcNextBtn">Next <i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISTAKES NOTEBOOK SECTION -->
+    <section id="mistakesSection" class="view-section hidden">
+      <div class="dashboard-header">
+        <div>
+          <h2>Mistakes Notebook</h2>
+          <p>Questions answered incorrectly in full practice tests are saved here for targeted revision.</p>
+        </div>
+        <button class="btn btn-outline" id="clearMistakesBtn"><i class="fa-solid fa-trash"></i> Clear Notebook</button>
+      </div>
+
+      <div class="card">
+        <div id="mistakesListContainer" class="mistakes-list">
+          <!-- Populated by JS -->
+        </div>
+        <div id="noMistakes" class="empty-state">
+          <i class="fa-solid fa-circle-check text-success" style="font-size: 2.5rem; margin-bottom: 0.5rem;"></i>
+          <p>Your notebook is empty! Outstanding work on your tests.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERVIEW SETUP CONFIGURATOR SECTION -->
+    <section id="setupSection" class="view-section hidden">
+      <div class="config-card">
+        <div class="config-header">
+          <h2>Configure Practice Assessment</h2>
+          <p>Select your track and start an extended 20-25 question mock interview session.</p>
+        </div>
+
+        <form id="setupForm">
+          <div class="form-group">
+            <label for="selectDomain"><i class="fa-solid fa-layer-group"></i> Select Domain Track</label>
+            <select id="selectDomain" required>
+              <option value="Frontend Development">Frontend Development (20 Qs)</option>
+              <option value="Backend Engineering">Backend Engineering (20 Qs)</option>
+              <option value="Data Science & AI">Data Science & AI (20 Qs)</option>
+              <option value="Product Management">Product Management (20 Qs)</option>
+              <option value="DevOps & Cloud">DevOps & Cloud (20 Qs)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="selectJobType"><i class="fa-solid fa-briefcase"></i> Employment Type Target</label>
+            <select id="selectJobType" required>
+              <option value="Full-Time Employment">Full-Time Employment</option>
+              <option value="Internship">Internship</option>
+              <option value="Contract / Freelance">Contract / Freelance</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label><i class="fa-solid fa-signal"></i> Target Difficulty Level</label>
+            <div class="radio-tiles">
+              <label class="tile">
+                <input type="radio" name="level" value="Entry-Level" checked>
+                <div class="tile-content">
+                  <strong>Entry-Level</strong>
+                  <small>0 - 2 Yrs Exp.</small>
+                </div>
+              </label>
+              <label class="tile">
+                <input type="radio" name="level" value="Mid-Level">
+                <div class="tile-content">
+                  <strong>Mid-Level</strong>
+                  <small>2 - 5 Yrs Exp.</small>
+                </div>
+              </label>
+              <label class="tile">
+                <input type="radio" name="level" value="Senior-Level">
+                <div class="tile-content">
+                  <strong>Senior-Level</strong>
+                  <small>5+ Yrs Exp.</small>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg"><i class="fa-solid fa-circle-play"></i> Launch Extended Assessment</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- QUIZ / QUESTION PRACTICE SECTION -->
+    <section id="quizSection" class="view-section hidden">
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <div>
+            <span class="badge badge-secondary" id="quizDomainBadge">Frontend</span>
+            <span class="badge badge-outline" id="quizLevelBadge">Entry-Level</span>
+          </div>
+          <div class="quiz-timer" id="quizTimer"><i class="fa-regular fa-clock"></i> 25:00</div>
+        </div>
+
+        <div class="quiz-progress-bar-container">
+          <div class="quiz-progress-bar" id="quizProgressBar"></div>
+        </div>
+
+        <div class="quiz-card">
+          <div class="quiz-card-header">
+            <span class="q-counter" id="questionCounter">Question 1 of 20</span>
+          </div>
+          <h3 class="question-text" id="questionText">Loading Question...</h3>
+
+          <div class="options-group" id="optionsContainer">
+            <!-- Dynamically populated options -->
+          </div>
+
+          <div class="quiz-footer">
+            <button class="btn btn-secondary" id="prevBtn" disabled><i class="fa-solid fa-chevron-left"></i> Previous</button>
+            <button class="btn btn-primary" id="nextBtn">Next Question <i class="fa-solid fa-chevron-right"></i></button>
+            <button class="btn btn-success hidden" id="submitBtn"><i class="fa-solid fa-paper-plane"></i> Submit Assessment</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS SECTION -->
+    <section id="resultSection" class="view-section hidden">
+      <div class="result-card">
+        <div class="result-header">
+          <div class="score-circle" id="scoreCircle">
+            <span class="score-number" id="scorePercentage">0%</span>
+            <span class="score-label" id="scoreFraction">0/20</span>
+          </div>
+          <h2 id="resultTitle">Assessment Completed!</h2>
+          <p id="resultSubtext">Incorrect questions have been automatically logged into your Mistakes Notebook.</p>
+        </div>
+
+        <div class="answers-review">
+          <h3><i class="fa-solid fa-list-check"></i> Complete Answers Review</h3>
+          <div id="reviewList" class="review-list">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <div class="result-actions">
+          <button class="btn btn-primary" id="backToDashBtn"><i class="fa-solid fa-chart-line"></i> Return to Dashboard</button>
+          <button class="btn btn-secondary" id="retakeBtn"><i class="fa-solid fa-rotate-right"></i> Retake Practice Test</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Next-HIRE Platform. AI-Driven Technical Assessment Engine.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
